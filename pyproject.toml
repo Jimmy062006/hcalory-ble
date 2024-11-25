@@ -1,0 +1,24 @@
+[project]
+name = "hcalory-ble"
+version = "0.1.0"
+description = "Home Assistant custom integration for Hcalory BLE diesel heaters."
+authors = [{ name = "Evan Foster", email = "evan@fos.tech" }]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "aioesphomeapi>=27.0.2",
+  "hcalory-control==0.1.5",
+  "homeassistant>=2024.11.3",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.13.0",
+    "ruff>=0.7.3",
+    "home-assistant-bluetooth",
+    "pytest-homeassistant-custom-component",
+    # Requirements for HASS
+    "pyserial>=3.5",  # For HASS serial component
+    "bluetooth-auto-recovery>=1.4.2",  # For HASS Bluetooth component
+]
+

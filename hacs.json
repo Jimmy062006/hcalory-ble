@@ -1,0 +1,7 @@
+{
+  "name": "Hcalory BLE",
+  "hacs": "1.6.0",
+  "homeassistant": "2024.11",
+  "render_readme": true,
+  "country": ["US"]
+}
