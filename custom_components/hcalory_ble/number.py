@@ -36,8 +36,12 @@ async def async_setup_entry(
 
 
 class HcalorySettingNumber(HcaloryHeaterEntity, NumberEntity):
-    def __init__(self, coordinator: HcaloryCoordinator, entry: ConfigEntry[hcalory_control.heater.HCaloryHeater],
-                 entity_description: NumberEntityDescription):
+    def __init__(
+        self,
+        coordinator: HcaloryCoordinator,
+        entry: ConfigEntry[hcalory_control.heater.HCaloryHeater],
+        entity_description: NumberEntityDescription,
+    ):
         super().__init__(coordinator, entry, entity_description)
         self.change_lock = asyncio.Lock()
 
@@ -100,10 +104,14 @@ class HcalorySettingNumber(HcaloryHeaterEntity, NumberEntity):
                     )
                     if assumed_state < next_value:
                         assumed_state += 1
-                        await self.heater.send_command(hcalory_control.heater.Command.up)
+                        await self.heater.send_command(
+                            hcalory_control.heater.Command.up
+                        )
                     elif assumed_state > next_value:
                         assumed_state -= 1
-                        await self.heater.send_command(hcalory_control.heater.Command.down)
+                        await self.heater.send_command(
+                            hcalory_control.heater.Command.down
+                        )
                     await asyncio.sleep(0.1)
                 # Going up will be off by one. Gotta love non-inclusive range operations.
                 if assumed_state < new_value:
