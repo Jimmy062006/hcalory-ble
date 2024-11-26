@@ -29,7 +29,7 @@ Currently, this integration doesn't support doing these things:
 ### What you need
 * Some way for your Home Assistant instance to use Bluetooth
     * While this integration _can_ be used with something like a USB Bluetooth dongle, I wouldn't recommend it. Instead, an ESPHome Bluetooth Proxy should be used, which lets you get a Bluetooth antenna anywhere you have wifi reception. Don't be scared off by the thought of flashing microcontrollers because it's [shockingly easy.](https://esphome.io/projects/index.html) You can literally do everything you need from within your web browser
-* Install the Hcalory BLE integration using this handy button: [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=evanfoster&repository=https%3A%2F%2Fgithub.com%2Fevanfoster%2Fhcalory-ble&category=Integration)
+* Install the Hcalory BLE integration using this handy button: [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=evanfoster&repository=hcalory-ble&category=Integration)
 
 ### A note on safety
 Please be careful. These heaters are relatively safe, but they're still _on fire_ and they still produce horribly toxic exhaust products. You're trusting your control over your heater to _Bluetooth_ and code written by some random idiot on the internet. Please ensure you have carbon monoxide detectors and fire alarms installed where you plan to use your heater.
