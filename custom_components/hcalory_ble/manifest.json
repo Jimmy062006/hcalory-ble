@@ -16,8 +16,8 @@
   "dependencies": [
     "bluetooth_adapters"
   ],
-  "documentation": "https://www.github.com/evanfoster/hcalory_ble",
-  "issue_tracker": "https://www.github.com/evanfoster/hcalory_ble/issues",
+  "documentation": "https://www.github.com/evanfoster/hcalory-ble",
+  "issue_tracker": "https://www.github.com/evanfoster/hcalory-ble/issues",
   "homekit": {},
   "iot_class": "local_polling",
   "requirements": [
