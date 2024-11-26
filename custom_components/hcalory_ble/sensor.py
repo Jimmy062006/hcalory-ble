@@ -25,8 +25,6 @@ _T = TypeVar("_T")
 
 @dataclass(frozen=True, kw_only=True)
 class HcalorySensorDescription(SensorEntityDescription, Generic[_T]):
-    """Entity description of a sensor entity with initial_value attribute."""
-
     data_attribute: DataAttributeType
 
 

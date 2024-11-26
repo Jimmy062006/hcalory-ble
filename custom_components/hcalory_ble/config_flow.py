@@ -100,7 +100,6 @@ class HcaloryBLEConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Handle the initial step."""
         if user_input is not None:
             self.address = user_input[CONF_ADDRESS]
             await self.async_set_unique_id(self.address, raise_on_progress=False)

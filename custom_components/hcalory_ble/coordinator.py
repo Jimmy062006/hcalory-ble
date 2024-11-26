@@ -33,7 +33,6 @@ class HcaloryCoordinator(DataUpdateCoordinator[hcalory_control.heater.HeaterResp
         self.name: str = name
 
     async def async_shutdown(self) -> None:
-        """Shutdown coordinator and any connection."""
         LOGGER.debug("Shutdown")
         await super().async_shutdown()
         if self.heater.is_connected:
@@ -63,7 +62,6 @@ class HcaloryCoordinator(DataUpdateCoordinator[hcalory_control.heater.HeaterResp
             raise UpdateFailed(f"Failed to connect to {self.address}") from e
 
     async def _async_update_data(self) -> hcalory_control.heater.HeaterResponse:
-        """Poll the device."""
         LOGGER.debug("Polling device %s", self.address)
 
         try:

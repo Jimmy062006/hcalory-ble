@@ -26,7 +26,6 @@ PLATFORMS: list[Platform] = [
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry[hcalory_control.heater.HCaloryHeater]
 ) -> bool:
-    """Set up Hcalory BLE from a config entry."""
     mac_address = entry.data[CONF_ADDRESS]
     LOGGER.debug("(%s) Setting up device", mac_address)
     mac_address = entry.data[CONF_ADDRESS]
@@ -75,8 +74,6 @@ async def async_setup_entry(
 async def async_unload_entry(
     hass: HomeAssistant, entry: ConfigEntry[hcalory_control.heater.HCaloryHeater]
 ) -> bool:
-    """Unload a config entry."""
-    """Unload a config entry."""
     if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
         heater: hcalory_control.heater.HCaloryHeater = entry.runtime_data
         await heater.disconnect()
