@@ -43,7 +43,7 @@ async def async_setup_entry(
             ble_device = await bleak_retry_connector.get_device(mac_address)
             if ble_device is None:
                 raise homeassistant.exceptions.ConfigEntryNotReady(
-                    f"{mac_address} Could not get BLEDevice. Creating new one from address."
+                    f"{mac_address} Could not get BLEDevice. We cannot get a name this way. A heater needs a name."
                 )
 
         if not ble_device.name:
