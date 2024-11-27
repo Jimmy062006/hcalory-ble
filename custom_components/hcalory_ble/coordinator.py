@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 from datetime import timedelta
 
@@ -66,18 +67,28 @@ class HcaloryCoordinator(DataUpdateCoordinator[hcalory_control.heater.HeaterResp
 
         try:
             if not self.heater.is_connected:
+                LOGGER.warning(
+                    "Heater %s with addr %s is not connected. Trying to reconnect.",
+                    self.name,
+                    self.address,
+                )
                 await self.async_find_device()
         except BleakError as err:
             raise UpdateFailed("Failed to connect") from err
 
         try:
-            data = await self.heater.get_data()
+            LOGGER.debug(
+                "Fetching data from %s (addr %s) now.", self.name, self.address
+            )
+            async with asyncio.timeout(30.0):
+                data = await self.heater.get_data()
             LOGGER.debug(json.dumps(data.asdict(), indent=4, sort_keys=True))
             return data
         except (
             BleakError,
             ValueError,
             aioesphomeapi.core.BluetoothGATTAPIError,
+            TimeoutError,
         ) as err:
             LOGGER.exception(
                 "Error getting data from device with addr %s", self.address

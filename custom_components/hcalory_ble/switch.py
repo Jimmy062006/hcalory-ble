@@ -49,7 +49,6 @@ class HcalorySwitch(HcaloryHeaterEntity, SwitchEntity):
             self.heater.is_connected,
         )
         try:
-            await self.coordinator.async_find_device()
             await self.heater.get_data()
             await self.heater.send_command(hcalory_control.heater.Command.start_heat)
             await asyncio.sleep(1.0)
