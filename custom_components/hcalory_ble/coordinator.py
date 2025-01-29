@@ -80,7 +80,7 @@ class HcaloryCoordinator(DataUpdateCoordinator[hcalory_control.heater.HeaterResp
             LOGGER.debug(
                 "Fetching data from %s (addr %s) now.", self.name, self.address
             )
-            async with asyncio.timeout(30.0):
+            async with asyncio.timeout(45.0):
                 data = await self.heater.get_data()
             LOGGER.debug(json.dumps(data.asdict(), indent=4, sort_keys=True))
             return data
@@ -88,6 +88,7 @@ class HcaloryCoordinator(DataUpdateCoordinator[hcalory_control.heater.HeaterResp
             BleakError,
             ValueError,
             aioesphomeapi.core.BluetoothGATTAPIError,
+            aioesphomeapi.core.BluetoothConnectionDroppedError,
             TimeoutError,
         ) as err:
             LOGGER.exception(

@@ -124,14 +124,14 @@ class HcalorySettingNumber(HcaloryHeaterEntity, NumberEntity):
                     )
                 await self.coordinator.async_refresh()
                 await asyncio.sleep(10.0)
-                if native_value := self.native_value is not None:
-                    current_value = int(native_value)
+                if current_value := self.coordinator.data.heater_setting is not None:
                     LOGGER.debug(
                         "(%s) Current value after everything: %d, original value: %d",
                         self.address,
                         current_value,
                         original_value,
                     )
+                    return
                     if current_value == original_value:
                         LOGGER.warning(
                             "(%s) Attempt to change set point from %d to %d did not actually change anything. "
