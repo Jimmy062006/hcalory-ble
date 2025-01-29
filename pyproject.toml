@@ -1,6 +1,6 @@
 [project]
 name = "hcalory-ble"
-version = "0.1.0"
+version = "0.1.1"
 description = "Home Assistant custom integration for Hcalory BLE diesel heaters."
 authors = [{ name = "Evan Foster", email = "evan@fos.tech" }]
 readme = "README.md"
