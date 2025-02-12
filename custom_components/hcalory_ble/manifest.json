@@ -21,9 +21,9 @@
   "homekit": {},
   "iot_class": "local_polling",
   "requirements": [
-    "hcalory-control==0.1.5"
+    "hcalory-control==0.1.6"
   ],
   "ssdp": [],
   "zeroconf": [],
-  "version": "0.0.2"
+  "version": "0.0.3"
 }
