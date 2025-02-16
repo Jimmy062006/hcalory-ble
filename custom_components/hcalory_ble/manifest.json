@@ -21,7 +21,7 @@
   "homekit": {},
   "iot_class": "local_polling",
   "requirements": [
-    "hcalory-control==0.1.6"
+    "git+https://github.com/Jimmy062006/hcalory-control@master#egg=hcalory-control"
   ],
   "ssdp": [],
   "zeroconf": [],
